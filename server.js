@@ -118,7 +118,8 @@ async function searchZenn(query) {
 // Search Hatena Blog articles via RSS
 async function searchHatena(query) {
   try {
-    // Using Hatena Bookmark's hot entry feed
+    // Note: Hatena doesn't provide a direct search API, so we use the IT category RSS feed
+    // and filter locally. This returns popular tech articles matching the search term.
     const feed = await parser.parseURL('https://b.hatena.ne.jp/hotentry/it.rss');
     
     const articles = feed.items
@@ -133,7 +134,7 @@ async function searchHatena(query) {
         title: item.title,
         url: item.link,
         publishedAt: item.pubDate || item.isoDate,
-        author: 'Hatena User',
+        author: item.creator || item.author || 'Unknown Author',
         source: 'Hatena',
         tags: []
       }));
