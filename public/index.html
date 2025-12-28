@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBook - 技術記事アグリゲーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 TechBook</h1>
+            <p class="subtitle">Zenn・Qiita・はてなブログの技術記事を横断検索</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="検索キーワードを入力（例: JavaScript セキュリティ）"
+                    autocomplete="off"
+                >
+                <button id="searchBtn">検索</button>
+            </div>
+        </div>
+
+        <div id="resultsSection" class="results-section hidden">
+            <div class="results-header">
+                <h2>検索結果</h2>
+                <span id="resultCount" class="result-count"></span>
+            </div>
+            <div id="loadingIndicator" class="loading hidden">
+                <div class="spinner"></div>
+                <p>記事を取得中...</p>
+            </div>
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="articlesList" class="articles-list"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 TechBook - 技術記事を探さなくていい体験を</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
