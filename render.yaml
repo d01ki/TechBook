@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: tech-book
+    env: node
+    buildCommand: "yarn install --frozen-lockfile && yarn build"
+    startCommand: "yarn start"
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
